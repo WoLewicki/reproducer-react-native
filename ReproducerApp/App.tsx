@@ -8,6 +8,7 @@
 import React from 'react';
 import type {PropsWithChildren} from 'react';
 import {
+  NativeModules,
   SafeAreaView,
   ScrollView,
   StatusBar,
@@ -56,6 +57,8 @@ function Section({children, title}: SectionProps): React.JSX.Element {
 }
 
 function App(): React.JSX.Element {
+  const nativeModule = NativeModules.RNFBAppModule;
+  console.log('properties: ', Object.keys(nativeModule));
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
