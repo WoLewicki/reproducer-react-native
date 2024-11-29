@@ -1,0 +1,27 @@
+diff --git a/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/events/ScreenAppearEvent.kt b/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/events/ScreenAppearEvent.kt
+index e1e3a9f..dd2363f 100644
+--- a/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/events/ScreenAppearEvent.kt
++++ b/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/events/ScreenAppearEvent.kt
+@@ -1,6 +1,7 @@
+ package com.swmansion.rnscreens.events
+ 
+ import com.facebook.react.bridge.Arguments
++import com.facebook.react.bridge.WritableArray
+ import com.facebook.react.bridge.WritableMap
+ import com.facebook.react.uimanager.events.Event
+ 
+@@ -13,7 +14,13 @@ class ScreenAppearEvent(
+     // All events for a given view can be coalesced.
+     override fun getCoalescingKey(): Short = 0
+ 
+-    override fun getEventData(): WritableMap? = Arguments.createMap()
++    override fun getEventData(): WritableMap? =
++        Arguments.createMap().apply {
++            putLong("test", 30)
++            putArray("test2", Arguments.createArray().apply {
++                pushLong( 30)
++            })
++        }
+ 
+     companion object {
+         const val EVENT_NAME = "topAppear"

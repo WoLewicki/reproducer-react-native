@@ -16,6 +16,7 @@ import {
   useColorScheme,
   View,
 } from 'react-native';
+import {ScreenStack, Screen} from 'react-native-screens';
 
 import {
   Colors,
@@ -68,6 +69,11 @@ function App(): React.JSX.Element {
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
         backgroundColor={backgroundStyle.backgroundColor}
       />
+      <ScreenStack style={{width: '100%', height: 100}}>
+        <Screen>
+          <Text>Screen 1</Text>
+        </Screen>
+      </ScreenStack>
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
